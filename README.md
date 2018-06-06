@@ -1,30 +1,10 @@
 # traxex
+1. 开发环境搭建和启动
 
-> A Vue.js project
+1.1 npm install
+1.2 npm run dev
 
-## Build Setup
+2. 生成发布文件
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+2.1 npm run build
+2.2 dist目录下即为可发布文件
