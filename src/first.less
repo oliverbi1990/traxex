@@ -1,0 +1,196 @@
+@ratio: 124rem;
+
+.center() {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.background(@url, @width, @height) {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(@url);
+  background-size: @width @height;
+}
+
+.offset(@left, @top) {
+  margin: @top 0 0 @left;
+}
+
+.first-step {
+  position: relative;
+  background: linear-gradient(rgba(211, 225, 243, 1), rgba(116, 112, 222, .2));
+}
+
+.shape-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  .page-title {
+    position: absolute;
+    .center();
+    color: rgba(255, 255, 255, 1);
+    font-size: 67/@ratio;
+    margin-top: 663/@ratio;
+  }
+
+  .square-first {
+    position: absolute;
+    .center();
+    .background('./assets/square-1.png', 678/@ratio, 626/@ratio);
+
+    width: 678/@ratio;
+    height: 626/@ratio;
+  }
+
+  .square-second {
+    position: absolute;
+    .center();
+    .offset(-535/@ratio, -270/@ratio);
+    .background('./assets/square-2.png', 232/@ratio, 224/@ratio);
+    animation: floatUpDown 2s infinite alternate;
+
+    width: 232/@ratio;
+    height: 224/@ratio;
+  }
+
+  .square-third {
+    position: absolute;
+    .center();
+    .offset(199/@ratio, -364/@ratio);
+    .background('./assets/square-3.png', 184/@ratio, 164/@ratio);
+    animation: floatUpDown 2.2s infinite alternate;
+
+    width: 164/@ratio;
+    height: 164/@ratio;
+  }
+
+  .square-fourth {
+    position: absolute;
+    .center();
+    .offset(-410/@ratio, 265/@ratio);
+    .background('./assets/square-4.png', 182/@ratio, 162/@ratio);
+    animation: floatUpDown 2.4s infinite alternate;
+
+    width: 182/@ratio;
+    height: 162/@ratio;
+  }
+
+  .square-fifth {
+    position: absolute;
+    .center();
+    .offset(-536/@ratio, 369/@ratio);
+    .background('./assets/square-5.png', 109/@ratio, 101/@ratio);
+    animation: floatUpDown 2.6s infinite alternate;
+
+    width: 109/@ratio;
+    height: 101/@ratio;
+  }
+
+  .square-sixth {
+    position: absolute;
+    .center();
+    .offset(102/@ratio, 256/@ratio);
+    .background('./assets/square-6.png', 359/@ratio, 255/@ratio);
+    animation: floatUpDown 2.8s infinite alternate;
+
+    width: 359/@ratio;
+    height: 255/@ratio;
+  }
+
+  .square-seventh {
+    position: absolute;
+    .center();
+    .offset(-116*0.6/@ratio, 790/@ratio);
+    .background('./assets/square-2.png', 232*0.6/@ratio, 224*0.6/@ratio);
+    animation: floatUpDown 2s infinite alternate;
+
+    width: 232*0.6/@ratio;
+    height: 224*0.6/@ratio;
+  }
+
+  .circle-first {
+    position: absolute;
+    .center();
+    .offset(-530/@ratio, -660/@ratio);
+    .background('./assets/circle-1.png', 471/@ratio, 471/@ratio);
+    animation: floatUpDown 8s infinite alternate;
+
+    width: 471/@ratio;
+    height: 471/@ratio;
+  }
+
+  .circle-second {
+    position: absolute;
+    .center();
+    .offset(183/@ratio, 89/@ratio);
+    .background('./assets/circle-1.png', 375/@ratio, 375/@ratio);
+    animation: floatUpDown 8s infinite alternate;
+
+    width: 375/@ratio;
+    height: 375/@ratio;
+  }
+
+  .line-first {
+    position: absolute;
+    .center();
+    .offset(-577/@ratio, -525/@ratio);
+    background-color: rgba(238, 240, 248, 1);
+
+    width: 22/@ratio;
+    height: 189/@ratio;
+  }
+
+  .line-second {
+    position: absolute;
+    .center();
+    .offset(543/@ratio, -311/@ratio);
+    background-color: rgba(238, 240, 248, 1);
+
+    width: 15/@ratio;
+    height: 322/@ratio;
+  }
+
+  .text-first {
+    position: absolute;
+    .center();
+    .offset(-425/@ratio, -650/@ratio);
+    .background('./assets/text-1.png', 130/@ratio, 520/@ratio);
+
+    width: 130/@ratio;
+    height: 520/@ratio;
+  }
+
+  .text-second {
+    position: absolute;
+    .center();
+    .offset(-150/@ratio, -806/@ratio);
+    .background('./assets/text-2.png', 133/@ratio, 209/@ratio);
+
+    width: 133/@ratio;
+    height: 209/@ratio;
+  }
+
+  .text-third {
+    position: absolute;
+    .center();
+    .offset(216/@ratio, -809/@ratio);
+    .background('./assets/text-3.png', 560/@ratio, 224/@ratio);
+
+    width: 560/@ratio;
+    height: 224/@ratio;
+  }
+
+  .text-fourth {
+    position: absolute;
+    .center();
+    .offset(388/@ratio, -548/@ratio);
+    .background('./assets/text-4.png', 163/@ratio, 83/@ratio);
+
+    width: 163/@ratio;
+    height: 83/@ratio;
+  }
+}

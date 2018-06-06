@@ -1,0 +1,47 @@
+.toast-wrap {
+  position: fixed;
+  max-width: 80%;
+  padding: .3rem .26rem;
+  border-radius: .12rem;
+  background: rgba(0, 0, 0, .6);
+  font-size: .32rem;
+  color: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 1000;
+  transition: opacity .3s linear;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes ToastFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.toast-fadein {
+  animation-duration: .3s;
+  animation-fill-mode: both;
+  animation-name: ToastFadeIn;
+}
+
+@keyframes ToastFadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.toast-fadeout {
+  animation-duration: .3s;
+  animation-fill-mode: both;
+  animation-name: ToastFadeOut;
+}

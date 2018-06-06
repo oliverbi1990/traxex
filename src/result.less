@@ -1,0 +1,165 @@
+body, html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+  background-color: rgba(234, 235, 240, 1);
+}
+
+.result-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8.60rem;
+  height: 14.40rem;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 6px rgba(4,0,0,.1);
+  border-radius: .15rem;
+}
+
+.result-poster {
+  position: relative;
+  height: 9rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./assets/default-poster.png');
+  background-size: 8.6rem 9rem;
+  color: rgba(255, 255, 255, 1);
+  .poster-name {
+    position: absolute;
+    left: .7rem;
+    top: .5rem;
+    font-size: .6rem;
+  }
+
+  .poster-title {
+    position: absolute;
+    left: .7rem;
+    top: 1.5rem;
+    font-size: .6rem;
+  }
+
+  .poster-paragraph {
+    position: absolute;
+    right: 1rem;
+    bottom: .8rem;
+    width: 5rem;
+    font-size: .4rem;
+    line-height: .7rem;
+    text-align: right;
+    &:before {
+      content: '“';
+      font-size: .8rem;
+    }
+    &:after {
+      content: '”';
+      position: absolute;
+      right: -.4rem;
+      bottom: 0;
+      font-size: .8rem;
+    }
+  }
+
+  .poster-heart {
+    position: absolute;
+    left: .7rem;
+    bottom: 1.3rem;
+    .heart-pic {
+      float: left;
+      width: 1rem;
+      height: .85rem;
+      background-image: url('./assets/heart.png');
+      background-repeat: no-repeat;
+      background-size: 1rem .85rem;
+    }
+    .heart-rate {
+      float: left;
+      font-size: .3rem;
+      text-align: center;
+      margin: -.1rem 0 0 .15rem;
+      &__num {
+        font-size: .7rem;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+.result-middle {
+  height: 3.5rem;
+}
+
+.result-bottom {
+  position: relative;
+  color: rgba(71, 71, 71, 1);
+  height: 1.9rem;
+  box-sizing: border-box;
+  border-top: .06rem dashed rgba(179, 179, 179, 1);
+  text-align: center;
+  &__title {
+    margin-top: .15rem;
+    font-size: .6rem;
+    line-height: 1rem;
+  }
+  &__tip {
+    font-size: .3rem;
+    line-height: 1;
+  }
+}
+
+.result-pantone {
+  float: left;
+  margin: .25rem 0 0 .4rem;
+  &__title {
+    font-size: .5rem;
+    line-height: 1.1rem;
+    &--bold {
+      font-weight: bold;
+    }
+  }
+  &__card {
+    margin-left: .1rem;
+    width: 4.1rem;
+    height: 1.44rem;
+    border-width: .1rem;
+    border-style: solid;
+    // border: .1rem solid rgb(108, 185, 178);
+    .card-color {
+      float: left;
+      width: 2rem;
+      height: 1.44rem;
+      // background-color: rgba(108, 185, 178, 1);
+      background-image: url('./assets/card-bg.png');
+      background-size: 1.4rem .72rem;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .card-info {
+      float: left;
+      // color: rgba(108, 185, 178, 1);
+      margin: .2rem 0 0 .25rem;
+      .card-info-cname {
+        font-size: .42rem;
+      }
+      .card-info-ename {
+        font-size: .25rem;
+      }
+    }
+  }
+}
+
+.result-qrcode {
+  float: right;
+  text-align: center;
+  margin: .23rem .4rem 0 0;
+  &__pic {
+    width: 2.16rem;
+    height: 2.16rem;
+  }
+
+  &__tip {
+    font-size: .25rem;
+    color: rgba(142, 142, 142, 1);
+  }
+}
