@@ -22,8 +22,10 @@ global.swiper = new Swiper('.swiper-container', {
     slideChangeTransitionStart: function () {
       if (global.swiper.realIndex === secondPage) {
         $('.first-step').removeClass('first-step--end').addClass('first-step--start')
+        $('.second-step').addClass('second-step--start').removeClass('second-step--end')
       } else if (global.swiper.realIndex === firstPage) {
         $('.first-step').removeClass('first-step--start').addClass('first-step--end')
+        $('.second-step').addClass('second-step--start').removeClass('second-step--end')
       }
     },
     slideChangeTransitionEnd: function () {
