@@ -4,7 +4,7 @@ import global from './global'
 import Toast from '../utils/toast'
 import Device from '../utils/device'
 
-function hideDialog () {
+function hideAlertDialog () {
   $('.dialog-wrapper .dialog-mask').removeClass('fadeIn').addClass('fadeOut')
   $('.dialog-wrapper .dialog-container').removeClass('fadeInUp').addClass('fadeOutDown')
   setTimeout(function () {
@@ -12,7 +12,7 @@ function hideDialog () {
   }, 200)
 }
 
-function showResult () {
+function showResultPage () {
   if (global.swiper) {
     global.swiper.allowTouchMove = false
   }
@@ -124,18 +124,14 @@ $('#confirm-button').on('click', function (event) {
     }
 
     $('.dialog-wrapper').on('click', '.dialog-button--cancel', function () {
-      hideDialog()
+      hideAlertDialog()
     })
 
     $('.dialog-wrapper').on('click', '.dialog-button--close', function () {
-      hideDialog()
+      hideAlertDialog()
       clearInterval(closeInterval)
-
-      if (type === 1) {
-        showResult()
-      }
     })
   } else {
-    showResult()
+    showResultPage()
   }
 })

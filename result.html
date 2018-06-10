@@ -7,10 +7,50 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no,email=no">
     <title>心脏波谱艺术</title>
+    <style type="text/css">
+      .loading-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(211, 225, 243, 1), rgba(116, 112, 222, .2));
+      }
+      .loading-content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .loading-pic {
+        margin: auto;
+        width: 75px;
+        height: 69px;
+        background-size: 75px 69px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAABOCAMAAABmOqowAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAMAUExURQAAAN3d+tng+t/h/5q++NPT7uXl+/TJ4aDN+LO3+JOZ9sbU37zO/MDP+O/h84mO5LvR/qKr+/Tl9ODb9rLF+bTI/7bE7/bf8fnb8L/O/Kaw/KCm+frb8arP/fvi+KHM/8GnwanO/uPT6Le+/ti7z6WJpdTM6J6JpOnL4Kzr/6TP7/rj9vnq/OnE3NC90v///1NUYaytwWZlb6epu66wwqWot6qsv5CBoamqvZWDolRWYv/a8It+nqSltba8/qyUr/v7/11kcVpfbI6U+JuHpP3P5mJha3dxkZKY/piFop6IpaKKpqSNqoqR/qmPqv/U7PnL46DI/7m91Pr//6Gks7S3z7G3/7e4x5ee/1BRXqWSr9KxysPH/5+MqaGjr7u//4KI6bO1wbzC//L1/Kvd/qbk/6qv9f/e9OK81VtaZKqst7KzyJyerL+9zcOgucGlwGdpdK2uu4uR876gur/D2v/k+ui+1//h97uatMbJ3KfW/ouOmnd4g01RWrmeucikvde1zrq8yqGlu9yyyrr//3t+itKqwv/q/quy/5eaqHByfLOYs9y50u7C2YJ2lZyj/4RvjOS40ZK8/pKVo7X0/8qrxsPB0vP//5yi67Dj/62vy0dMVLKxu5/d/6jq/5N9mop3llFVepWNrpvI8Kvy/6Kp/ub4/pqBnZGw64KGkpifvFRYaN7r86Op8cDG/2doj9Tf51tafZ2DkZC48LD8/5PH/snM5nVqiqy73KLS/5WHp2NigpfU///w/6Knyrj6/6WbtsDG4bPu/5O+58q51Jqg9sjN/5ydyqeorL7I0YyUtIm7/ICAn7yxz7Chu97h+oKI862w5ZGT2JzA/6OCn5q87qG526Cj2pd5kLbL/5nB/7iOqvfE24yDprHq+7Lc7G1mgn6D2VhhiT9Kbq7O63Z2l7iuw+Stx6D0/zA5TdTV8LCNpo2z5IWDtqTY9ebI35az+5SX6ZiNu6G0zs/W/83+/3t4ppCQzbLL4IeOztKgutfF3oqKpurU6ri86Yup3HtHAnkAAADbdFJOUwA8Gwb+MQ39/v7+/nJLZ/uW5PtYuIpkk8Emo8r5qMrc0ciCz6fnra+5yfaxq+P1/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////iE/cA0AAA55SURBVFjDrdl3XJPn2gdwFwLOqj3a3Z72jPec930/EEmIJJCwkhBIGJGEhJWEKQlhBhkJe+/NYW9kqCAiIBsZgihuce9V66raPd/rfkKo9a0VWq/PB/8hfv091z1yP7eLFr1YG1b+6/03Vm1cvWTJ0kWvr/7r7spPP/X09PT497//9VfM1/jzvsa23LvfVwJb+Wi0rrKiv6JutKJC68M333/jL6tWa7y9/I+pH+duy7gbcwWxnsB6VgDbX9HfX9fR39+vdUbrww/fX7JgdOn/5m4DNv7qvvrK+vq6UU/PCk+tB1qQuROxnR15nZ0XVi9U3bB9O6gZ8Xdv9Udo9Xic+Vmroqei/0FdhFZE3YyWVo9Wx+H+zs6/LHSstgObkZHhVD3tWaEF1M8dERUlBzjh8qLwcHm4XP7NzExd5+G/LqgLGpmZWFjb3qxLY/WfVlbWe46OVj7LVzQnJiY2K1L1HIrCi7j7Zw4fXrwAdVMmsKBmMoIzvku6isasclTr9r1IVGVlZQKTxHx8eLiMO5P3xvzVf9A0UQs0qVmaTk5J3936tBLciillvq89wd43PzHNp6zMJ5Eg7yrijn749nzHiltLo4FKy3LMdEKsvL4eulC/cs+eXTt27Nq1Z6VDaqJpWaRSvytctj9v4/zUt2i1bZo22zT9GZkxMU5OhYV+Y54VERGej3Zt/Y+qduxaKVaYlJEUnANFnI735zVWtrahwzUZNjaGvTSVGs96eNUT2CvuOluxwtzARFJZGr6rSPbzunnMhU22tpqh/jcLbRgx21RqDON0EiyIkco5diuwew7lm5TRCeEHZBOHV71yXWmCmhnq1HftqE0Mpma4MGLCLn4DbH2Buw5y4Q+MdU2LNHU9IC+aOPzmK7aeNTSaraZmJlnzXhZZlXUbwzzGP/iidN++kX37diB2Vl2JsfZyedGzw8sWv2KsaBBWk1bYm9Vtux3m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");
+      }
+      .loading-txt {
+        text-align: center;
+        font-size: 12px;
+        line-height: 40px;
+        color: rgba(123, 125, 148, 1);
+      }
+    </style>
+    <script type="text/javascript">
+      !function(){var a="@charset \"utf-8\";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}",b=document.createElement("style");if(document.getElementsByTagName("head")[0].appendChild(b),b.styleSheet)b.styleSheet.disabled||(b.styleSheet.cssText=a);else try{b.innerHTML=a}catch(c){b.innerText=a}}();!function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+    </script>
   </head>
   <body>
-    <div class="result-wrapper" style="visibility: hidden;">
-      <div class="result-poster">
+    <div class="loading-container">
+      <div class="loading-content">
+        <div class="loading-pic"></div>
+        <p class="loading-txt">正在加载...</p>
+      </div>
+    </div>
+    <div class="result-container" style="visibility: hidden;">
+      <div class="result-top poster-wrapper">
         <div class="poster-name">-</div>
         <div class="poster-title">心脏波谱艺术作品</div>
         <div class="poster-heart">
@@ -23,24 +63,24 @@
         <div class="poster-paragraph">-</div>
       </div>
       <div class="result-middle">
-        <div class="result-pantone">
-          <div class="result-pantone__title">我的<span class="result-pantone__title--bold">PANTONE</span>颜色</div>
-          <div class="result-pantone__card">
+        <div class="pantone-wrapper">
+          <div class="pantone-title">我的<span class="pantone-title--bold">PANTONE</span>颜色</div>
+          <div class="pantone-card">
             <div class="card-color"></div>
             <div class="card-info">
-              <div class="card-info-cname">-</div>
-              <div class="card-info-ename">-</div>
+              <div class="card-info__cname">-</div>
+              <div class="card-info__ename">-</div>
             </div>
           </div>
         </div>
-        <div class="result-qrcode">
-          <img src="about:blank" class="result-qrcode__pic"/>
-          <p class="result-qrcode__tip">扫描了解广州K11<br/>心脏波谱艺术互动装置</p>
+        <div class="qrcode-wrapper">
+          <img src="about:blank" class="qrcode-pic"/>
+          <p class="qrcode-tip">扫描了解广州K11<br/>心脏波谱艺术互动装置</p>
         </div>
       </div>
       <div class="result-bottom">
-        <p class="result-bottom__title">分享作品</p>
-        <p class="result-bottom__tip">(+50互动积分)</p>
+        <p class="share-title">分享作品</p>
+        <p class="share-tip">(+50互动积分)</p>
       </div>
     </div>
     <script type="text/javascript" src="https://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>

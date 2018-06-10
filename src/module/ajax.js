@@ -3,7 +3,7 @@ import global from './global'
 
 import Toast from '../utils/toast'
 
-function post (params = {}, config) {
+function ajax (params = {}, config) {
   params = Object.assign({}, params, { ver: global.ver, lang: global.lang, wxId: global.wxId })
   $.ajax({
     type: config.method,
@@ -20,7 +20,7 @@ function post (params = {}, config) {
 
 export default {
   start: function (params = {}, callback) {
-    post(params, {
+    ajax(params, {
       url: 'start',
       method: 'POST',
       success: function (data) {
@@ -34,7 +34,7 @@ export default {
   },
 
   hpinfo: function (params = {}, callback) {
-    post(params, {
+    ajax(params, {
       url: 'hpinfo',
       method: 'POST',
       success: function (data) {
@@ -48,7 +48,7 @@ export default {
   },
 
   gameinfo: function (params = {}, callback) {
-    post(params, {
+    ajax(params, {
       url: 'gameinfo',
       method: 'POST',
       success: function (data) {
@@ -65,7 +65,7 @@ export default {
   },
 
   addHp: function (params = {}, callback) {
-    post(params, {
+    ajax(params, {
       url: 'addHp',
       method: 'POST',
       success: function (data) {
