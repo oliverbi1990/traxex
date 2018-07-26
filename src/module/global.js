@@ -1,10 +1,9 @@
 export default {
   swiper: null,
 
-  baseUrl: '127.0.0.1',
-  port: 8081,
+  baseUrl: 'k11api.fanjiantech.com',
+  port: 80,
 
-  ver: 1,
-  lang: 'zh',
-  wxId: ''
+  openid: '',
+  code: ''
 }

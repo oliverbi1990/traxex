@@ -235,6 +235,17 @@
     margin-top: 663/@ratio;
     opacity: 1;
   }
+
+  .arrow-down {
+    position: absolute;
+    .center();
+    .background('./assets/arrow-down.png', 75/@ratio, 41/@ratio);
+
+    margin-top: 1000/@ratio;
+    width: 75/@ratio;
+    height: 41/@ratio;
+    opacity: 1;
+  }
 }
 
 .first-step--start {
@@ -344,6 +355,11 @@
     .text-fifth {
       .animate(1.5s);
       color: rgba(255, 255, 255, 1);
+      opacity: 0;
+    }
+
+    .arrow-down {
+      .animate(1.5s);
       opacity: 0;
     }
   }
@@ -457,5 +473,34 @@
       color: rgba(255, 255, 255, 1);
       opacity: 1;
     }
+
+    .arrow-down {
+      .animate(1.5s);
+      opacity: 1;
+    }
   }
+}
+
+.user-container {
+  position: absolute;
+  top: .3rem;
+  right: .3rem;
+
+  .user-avatar {
+    float: right;
+    img {
+      width: .8rem;
+      height: .8rem;
+      border-radius: 50%;
+      border: .05rem solid rgba(255, 255, 255, 1);
+    }
+  }
+  .user-info {
+    float: right;
+    font-size: .35rem;
+    color: rgba(255, 255, 255, 1);
+    text-align: right;
+    margin-top: .05rem;
+    margin-right: .3rem;
+  } 
 }

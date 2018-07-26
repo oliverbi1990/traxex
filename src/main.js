@@ -5,8 +5,11 @@ import $ from 'zepto'
 import Swiper from 'swiper'
 import global from './module/global'
 
+import Ajax from './module/ajax'
 import './module/form'
 import './module/submit'
+
+import Tool from './utils/tool'
 
 const firstPage = 0
 const secondPage = 1
@@ -38,3 +41,15 @@ setTimeout(() => {
   $('.swiper-container').css('visibility', 'visible').addClass('fadeIn')
   $('.loading-container').remove()
 }, 500)
+
+// 获取用户信息
+global.openid = Tool.queryUrl('openid')
+global.code = Tool.queryUrl('code')
+
+if (global.openid && global.code) {
+  Ajax.login({}, function (data) {
+    $('.user-avatar img').attr('src', data.msg.headimgurl)
+    $('.user-info').html('当日剩余游戏次数<br/>&hearts;X' + data.msg.life)
+    $('.user-container').show()
+  })
+}
