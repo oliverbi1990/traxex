@@ -43,6 +43,14 @@ function render (data) {
   $('.pantone-card').css('borderColor', colorId)
   $('.pantone-card .card-color').css('backgroundColor', colorId)
   $('.pantone-card .card-info').css('color', colorId)
+
+  // 判断背景图是否加载完成
+  let colorBgImg = new Image()
+  colorBgImg.src = colorBgUrl
+  colorBgImg.onload = function () {
+    $('.result-container').css('visibility', 'visible').addClass('fadeIn')
+    $('.loading-container').remove()
+  }
 }
 
 // 设置二维码
@@ -65,9 +73,3 @@ if (global.openid && global.code) {
     })
   })
 }
-
-// 显示页面
-setTimeout(() => {
-  $('.result-container').css('visibility', 'visible').addClass('fadeIn')
-  $('.loading-container').remove()
-}, 500)
